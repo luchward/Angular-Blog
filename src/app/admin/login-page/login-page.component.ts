@@ -23,7 +23,9 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe((params: Params) => {
       if (params['loginAgain']) {
-        this.message = 'Please, authenticate again';
+        this.message = 'Please, authenticate again.';
+      } else if (params['authFailed']) {
+        this.message = 'Session has run out. Please, authenticate again';
       }
     });
 
