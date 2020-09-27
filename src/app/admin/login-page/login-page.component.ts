@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../shared/interfaces';
 import { AuthService } from '../shared/services/auth.service';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -10,6 +10,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
+
   form: FormGroup;
   submitted = false;
   message: string;
@@ -40,7 +41,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   submit(): void {
-    if (this.form.invalid) { return; }
+    if (this.form.invalid) return;
     this.submitted = true;
     const user: User = {
       email: this.form.value.email,

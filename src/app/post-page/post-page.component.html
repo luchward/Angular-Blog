@@ -1,16 +1,21 @@
-<div class="post">
-  <div class="header">
-    <h1>Post title</h1>
-    <button class="btn btn-link" routerLink="/">Main page</button>
-  </div>
+<div *ngIf="post$ | async as post; else loading">
+  <div class="post">
+    <div class="header">
+      <h1>{{ post.title }}</h1>
+      <button class="btn btn-link" routerLink="/">Main page</button>
+    </div>
 
-  <div class="info">
-    <strong>Author</strong>
-    <small>25.09.2020</small>
-  </div>
-  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad consequatur consequuntur dolor dolores eligendi error hic id impedit inventore iure laudantium molestiae, mollitia neque nostrum nulla odit quod ratione repudiandae rerum similique velit vitae voluptatem voluptatibus voluptatum. Asperiores cumque ea excepturi facilis labore modi officiis quo sunt ullam voluptatum.</div>
-  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad consequatur consequuntur dolor dolores eligendi error hic id impedit inventore iure laudantium molestiae, mollitia neque nostrum nulla odit quod ratione repudiandae rerum similique velit vitae voluptatem voluptatibus voluptatum. Asperiores cumque ea excepturi facilis labore modi officiis quo sunt ullam voluptatum.</div>
-  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad consequatur consequuntur dolor dolores eligendi error hic id impedit inventore iure laudantium molestiae, mollitia neque nostrum nulla odit quod ratione repudiandae rerum similique velit vitae voluptatem voluptatibus voluptatum. Asperiores cumque ea excepturi facilis labore modi officiis quo sunt ullam voluptatum.</div>
-  <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad consequatur consequuntur dolor dolores eligendi error hic id impedit inventore iure laudantium molestiae, mollitia neque nostrum nulla odit quod ratione repudiandae rerum similique velit vitae voluptatem voluptatibus voluptatum. Asperiores cumque ea excepturi facilis labore modi officiis quo sunt ullam voluptatum.</div>
+    <div class="info">
+      <strong>{{ post.author }}</strong>
+      <small>{{ post.date | date:'medium':null:'us' }}</small>
+    </div>
 
+    <div>
+      <quill-view-html [content]="post.text"></quill-view-html>
+    </div>
+  </div>
 </div>
+
+<ng-template #loading>
+  <p class="text-center">loading...</p>
+</ng-template>

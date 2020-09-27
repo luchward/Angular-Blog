@@ -6,6 +6,4 @@ import { QuillModule } from "ngx-quill";
   imports: [ HttpClientModule, QuillModule.forRoot() ],
   exports: [ HttpClientModule, QuillModule ]
 })
-export  class SharedModule {
-
-}
+export  class SharedModule { }

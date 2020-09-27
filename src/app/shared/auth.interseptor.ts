@@ -1,9 +1,9 @@
-import {Injectable} from "@angular/core";
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {Observable, throwError} from "rxjs";
-import {AuthService} from "../admin/shared/services/auth.service";
-import {Router} from "@angular/router";
-import {catchError} from "rxjs/operators";
+import { Injectable } from "@angular/core";
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { Observable, throwError } from "rxjs";
+import { AuthService } from "../admin/shared/services/auth.service";
+import { Router } from "@angular/router";
+import { catchError } from "rxjs/operators";
 
 @Injectable()
 export class AuthInterseptor implements HttpInterceptor {
@@ -11,7 +11,7 @@ export class AuthInterseptor implements HttpInterceptor {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
