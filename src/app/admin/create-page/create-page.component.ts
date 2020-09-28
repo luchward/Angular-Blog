@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Post } from "../../shared/interfaces";
-import { PostService } from "../../shared/post.service";
-import { AlertService } from "../shared/services/alert.service";
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Post } from '../../shared/interfaces';
+import { PostService } from '../../shared/post.service';
+import { AlertService } from '../shared/services/alert.service';
 
 @Component({
   selector: 'app-create-page',
@@ -27,7 +27,7 @@ export class CreatePageComponent implements OnInit {
   }
 
   submit() {
-    if (this.form.invalid) {return;}
+    if (this.form.invalid) {return; }
     const post: Post = {
       title: this.form.value.title,
       text: this.form.value.text,
