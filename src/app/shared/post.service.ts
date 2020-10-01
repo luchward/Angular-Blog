@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Post, FbCreateResponse } from "./interfaces";
-import { environment } from "../../environments/environment";
-import { map } from "rxjs/operators";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Post, FbCreateResponse } from './interfaces';
+import { environment } from '../../environments/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class PostService {
@@ -17,7 +17,7 @@ export class PostService {
           ...post,
           id: response.name,
           date: new Date(post.date)
-        }
+        };
       }));
   }
 
@@ -39,7 +39,7 @@ export class PostService {
       .pipe(map((post: Post) => {
         return {
           ...post,
-          id: id,
+          id,
           date: new Date(post.date)
         };
       }));
